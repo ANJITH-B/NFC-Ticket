@@ -1,0 +1,16 @@
+.live{
+    align-items: end;
+    text-indent: px;
+    padding-left: 10px;
+    /* margin-bottom:11px;
+    border-bottom: 11px; */
+   
+}
+.blink{
+    
+    margin-top:2px ;
+}
+.top{
+    padding-top: 20px;
+    margin-top: 60px;
+}
