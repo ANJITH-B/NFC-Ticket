@@ -25,8 +25,7 @@ function Bus() {
   return (
 
     <Container className='m=2'>
-    {customerIds.map((customerId) => (
-        customers[customerId].Status === '0' || customers[customerId].id === 0 ? null : (  
+    {customerIds.map((customerId) => (  
     <Card md={2} className="g-4 m=2 mb-4">
       <Card.Header as="h6">BUS BOARD - {customers[customerId].MainBoard}</Card.Header>
       <Card.Body>
@@ -34,7 +33,7 @@ function Bus() {
         
         <Card.Text className='m=2 t'>
           <Spinner animation="grow" size="sm" className='blink' variant="success"/>
-          <span> With supporting </span>
+          <span> {customers[customerId].Status}  </span>
         </Card.Text>
 
         <Card.Text className='m=2'>
@@ -49,7 +48,7 @@ function Bus() {
       </Card.Body>
     </Card>
    )
-  ))}
+  )}
 
     </Container>
     

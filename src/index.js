@@ -6,13 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import {FirebaseContext} from './store/Context'
 import Context from './store/Context'
 import firebase from './fireBase/config';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <FirebaseContext.Provider value={{firebase}}>
+    <Router>
     <Context>
       <App/>
     </Context>
+    </Router>
+    
     
   </FirebaseContext.Provider>
 );

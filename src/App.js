@@ -11,6 +11,7 @@ import Ticket from './pages/ticket/ticket';
 import Admin from './pages/admin/adminHome/admin';
 
 import Fom from './pages/admin/admin/from';
+import Journey from './pages/admin/startJourney/Journey';
 
 
 
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route path='/ticket'>
           <Ticket/>
+        </Route>
+        <Route path='/journey'>
+          <Journey/>
         </Route>
       </Router>
     </div>

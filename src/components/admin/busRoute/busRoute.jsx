@@ -46,7 +46,8 @@ function BusRoute() {
               <h6 className='gap'>second stop </h6>
           </Stack>
         </Card.Text>
-        <Button>START JOurney</Button>
+        <Button href={`/journey?key=${customerId}`}>START JOURNEY</Button>
+        <Button>DELETE</Button>
         
       </Card.Body>
     </Card>
