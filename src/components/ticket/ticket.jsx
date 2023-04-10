@@ -53,6 +53,22 @@ if (customers.Status === '0' && customers.Point !== 0) {
     Point: 0,
     Wallet: bal
   });
+}else if(customers.Status === '0'){
+  return (
+    <Container className='m=5 top' >
+          <Card key={customers.id}>
+            <Card.Header> E-TICKET
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>OOPS ! No Tickets...</Card.Title>
+              <Card.Text>
+                When you start a new journey , your  tickets will be displayed here.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+    </Container>
+  );
+ 
 }else{
     console.log('dsfgaaaaaaaaaa')
   return (
