@@ -21,7 +21,7 @@ function Bus() {
   }
 
   const customerIds = Object.keys(customers);
-
+  console.log(customerIds);
   return (
 
     <Container className='m=2'>
@@ -32,19 +32,28 @@ function Bus() {
         <Card.Title>{customers[customerId].SubBoard}</Card.Title>
         
         <Card.Text className='m=2 t'>
+        {customers[customerId].State ? (
           <Spinner animation="grow" size="sm" className='blink' variant="success"/>
-          <span> {customers[customerId].Status}  </span>
+              ) : ( <Spinner animation="grow" size="sm" className='blink' variant="warning"/> )}
+        {customers[customerId].State ? (
+              <b><span>&nbsp;{customers[customerId].Stop[customers[customerId].Status]}</span></b>
+              ) : ( <b><span> &nbsp;Preparing for Departure</span></b>)}  
+
         </Card.Text>
 
-        <Card.Text className='m=2'>
-          <Stack direction="horizontal">
-            <img
-              className="d-block w-2 size"
-              src={require('./R.png')}
-              alt="First slide"/>
-              <h6 className='gap'>second stop </h6>
-          </Stack>
-        </Card.Text>
+          <Card.Text className='m=2'>
+            <Stack direction="horizontal">
+              {customers[customerId].State && (
+              <img
+                className="d-block w-2 size"
+                src={require('./R.png')}
+                alt="First slide" />
+              )} {customers[customerId].State && (  
+                <h6 className='gap'>{customers[customerId].Stop[customers[customerId].Status+1] ? (customers[customerId].Stop[customers[customerId].Status+1]) : (<h6 className='gap'>Arriving to Destination</h6>)}</h6>
+              )}
+            </Stack>
+          </Card.Text>
+
       </Card.Body>
     </Card>
    )

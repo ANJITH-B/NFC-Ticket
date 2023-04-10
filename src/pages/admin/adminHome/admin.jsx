@@ -7,8 +7,8 @@ function Admin() {
   return (
     <div>
       <Navb/>
-      <BusRoute/>
       <Addbtn/>
+      <BusRoute/>
     </div>
   )
 }

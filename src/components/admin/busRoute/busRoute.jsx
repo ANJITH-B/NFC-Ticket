@@ -25,34 +25,41 @@ function BusRoute() {
   return (
 
     <Container className='container ' >
-    {customerIds.map((customerId) => (
-        customers[customerId].Status === '0' || customers[customerId].id === 0 ? null : (  
-    <Card md={2} className="g-4 mt-1 mb-3">
+    {customerIds.map((customerId) => (  
+    <Card md={2} className="g-4 m=2 mb-4">
       <Card.Header as="h6">BUS BOARD - {customers[customerId].MainBoard}</Card.Header>
       <Card.Body>
         <Card.Title>{customers[customerId].SubBoard}</Card.Title>
         
-        <Card.Text className='mt-1 t'>
+        <Card.Text className='m=2 t'>
+        {customers[customerId].State ? (
           <Spinner animation="grow" size="sm" className='blink' variant="success"/>
-          <span> With supporting </span>
+              ) : ( <Spinner animation="grow" size="sm" className='blink' variant="warning"/> )}
+        {customers[customerId].State ? (
+              <b><span>&nbsp;{customers[customerId].Stop[customers[customerId].Status]}</span></b>
+              ) : ( <b><span> &nbsp;Preparing for Departure</span></b>)}  
+
         </Card.Text>
 
-        <Card.Text className='mt-1'>
-          <Stack direction="horizontal">
-            <img
-              className="d-block w-2 size"
-              src={require('./R.png')}
-              alt="First slide"/>
-              <h6 className='gap'>second stop </h6>
-          </Stack>
-        </Card.Text>
+        <Card.Text className='m=2'>
+            <Stack direction="horizontal">
+              {customers[customerId].State && (
+              <img
+                className="d-block w-2 size"
+                src={require('./R.png')}
+                alt="First slide" />
+              )} {customers[customerId].State && (  
+                <h6 className='gap'>{customers[customerId].Stop[customers[customerId].Status+1]}</h6>
+              )}
+            </Stack>
+          </Card.Text>
         <Button href={`/journey?key=${customerId}`}>START JOURNEY</Button>
         <Button>DELETE</Button>
         
       </Card.Body>
     </Card>
    )
-  ))}
+  )}
 
     </Container>
   );
